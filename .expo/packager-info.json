@@ -1,7 +1,9 @@
 {
-  "expoServerPort": null,
+  "expoServerPort": 19000,
   "packagerPort": 19000,
   "expoServerNgrokUrl": "https://47-gdn.marine-spaak.react-native-jobs.exp.direct",
   "packagerNgrokUrl": "https://47-gdn.marine-spaak.react-native-jobs.exp.direct",
-  "ngrokPid": 16656
+  "ngrokPid": 20169,
+  "packagerPid": null,
+  "webpackServerPort": null
 }
