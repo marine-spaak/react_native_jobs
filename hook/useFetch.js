@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// Voici comment on gère la variable d'environnement
-// Voir ici et dans le env
-import { RAPID_API_KEY } from '@env';
-const rapidApiKey = RAPID_API_KEY;
+// Pour bien faire il faudrait passer par une variable d'environnement
+const rapidApiKey = 'c9e4ac9385mshfea2a1a700c1825p1e4a7ejsne895433d9b68';
 
 const useFetch = (endpoint) => {
   const [data, setData] = useState([]);
