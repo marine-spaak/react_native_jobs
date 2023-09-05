@@ -19,7 +19,11 @@ const JobDetails = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]); // Premier onglet actif
 
   // TODO
-  const onRefresh = () => {};
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    refetch();
+    setRefreshing(false);
+  }, []);
 
   // Fonction qui gère l'affichage de tel ou tel onglet About / Qualif / Resp
   const displayTabContent = () => {
@@ -54,7 +58,7 @@ const JobDetails = () => {
             <ScreenHeaderBtn
               iconURL={icons.left}
               dimension="60%"
-              onPress={() => router.back()}
+              handlePress={() => router.back()}
             />
           ),
           headerRight: () => ( //TODO Le bouton de droite avec "partager"
