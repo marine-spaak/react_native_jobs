@@ -7,6 +7,7 @@ import {
 } from '../../components';
 import { COLORS, icons, SIZES } from '../../constants';
 import useFetch from '../../hook/useFetch';
+import About from '../../components/jobdetails/about/About';
 
 const tabs = ["About", "Qualifications", "Responsibilities"];
 
@@ -19,6 +20,23 @@ const JobDetails = () => {
 
   // TODO
   const onRefresh = () => {};
+
+  // Fonction qui gère l'affichage de tel ou tel onglet About / Qualif / Resp
+  const displayTabContent = () => {
+    switch (activeTab) {
+      case "About":
+        return <About
+          info={data[0].job_description ?? "No data provided"}
+          />
+      case "Qualifications":
+        return <Specifics
+          title="Qualitifactions"
+          points={data[0].job_highlights?.Qualifications ?? ['N/A']}
+          />
+      case "Responsibilities":
+        break;
+    }
+  };
 
   const { data, isLoading, error, refetch } = useFetch('job-details', {job_id: params.id});
 
@@ -76,7 +94,9 @@ const JobDetails = () => {
                 tabs={tabs}
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
-              /> 
+              />
+
+              {displayTabContent()}
 
             </View>
           )
